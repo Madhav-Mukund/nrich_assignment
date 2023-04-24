@@ -43,7 +43,7 @@ class _ImageUploadScreenState extends State<ImageUploadScreen> {
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
-          content: Text('Failed to upload image'),
+          content: Text('Upload failed. Try again.'),
           duration: Duration(seconds: 3),
         ),
       );
@@ -53,21 +53,21 @@ class _ImageUploadScreenState extends State<ImageUploadScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Image Upload')),
+      appBar: AppBar(title: Text('Image Upload')),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             _image == null
-                ? const Text('No image selected')
+                ? Text('No image selected')
                 : Image.file(_image!, width: 300, height: 300),
             ElevatedButton(
               onPressed: _getImageFromGallery,
-              child: const Text('Select Image'),
+              child: Text('Select Image'),
             ),
             ElevatedButton(
               onPressed: _uploadImage,
-              child: const Text('Upload Image'),
+              child: Text('Upload Image'),
             ),
           ],
         ),
